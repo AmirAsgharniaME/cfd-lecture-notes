@@ -25,4 +25,3 @@ Numerical discretization (FDM, FVM), spatial and temporal truncation errors, num
 ## Author
 **Amir Asgharnia**  
 *Mechanical Engineering student specializing in CFD and Scientific Computing in Modern C++.*
-
