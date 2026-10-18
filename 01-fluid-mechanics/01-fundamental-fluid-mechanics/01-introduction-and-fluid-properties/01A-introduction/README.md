@@ -7,6 +7,7 @@
 ## 📘 1. Overview & Lecture Metadata
 
 - **Lesson:** Lesson 01A — Introduction
+- **Lecture video:** [Watch on YouTube](https://youtu.be/SrpX7m89_-I)
 - **Instructor:** Prof. John M. Cimbala, Penn State University
 - **Course reference:** Undergraduate Fluid Mechanics / ME 521
 - **Textbook reference:** Chapter 1, “Introduction and Basic Concepts,” especially Section 1-1, “Introduction,” in *Fluid Mechanics: Fundamentals and Applications*, 4th Edition, by Yunus A. Çengel and John M. Cimbala.
