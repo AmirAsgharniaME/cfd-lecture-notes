@@ -1,129 +1,130 @@
-<div dir="rtl" style="font-family: 'Vazirmatn', Tahoma, sans-serif; line-height: 1.8;">
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+# Lesson 01A: Introduction to Fluid Mechanics
 
-# Lesson 01A: Introduction — مقدمه‌ای بر Fluid Mechanics
+## 1. Overview & Lecture Metadata
 
-## ۱. مشخصات و نمای کلی این جلسه
+- **Lesson:** Lesson 01A — Introduction
+- **Instructor:** Prof. John M. Cimbala, Penn State University
+- **Course reference:** Undergraduate Fluid Mechanics / ME 521
+- **Textbook reference:** Chapter 1, “Introduction and Basic Concepts,” especially Section 1-1, “Introduction,” in *Fluid Mechanics: Fundamentals and Applications*, 4th Edition, by Yunus A. Çengel and John M. Cimbala.
 
-- **عنوان درس:** Lesson 01A: Introduction
-- **مدرس:** Prof. John M. Cimbala، Penn State University
-- **مرجع کتاب:** فصل ۱، بخش آغازین **Section 1-1: Introduction** از کتاب *Fluid Mechanics: Fundamentals and Applications* نوشتهٔ Çengel & Cimbala. عنوان دقیق بخش ممکن است در ویرایش‌های مختلف کمی فرق کند.
-- **ایده‌های مرکزی:** تعریف **Fluid**، تفاوت **Normal Stress** و **Shear Stress**، مفهوم **Fluid Particle**، نقش **Free Body Diagram**، و جداسازی **Fluid Statics** از **Fluid Dynamics**.
+### What is Dr. Cimbala’s main goal in this lecture?
 
-### هدف دکتر کیمبلا توی این جلسه چیه؟
+Cimbala starts by building the mental model we’ll need for the rest of fluid mechanics. What counts as a fluid? How does a fluid respond when we push on it normally versus drag along its surface? And what changes in our analysis when the fluid is at rest or accelerating?
 
-دکتر کیمبلا می‌خواهد قبل از اینکه وارد فرمول‌های سنگین شویم، پایهٔ ذهنی درس را بسازد. سؤال‌های اصلی‌اش این‌ها هستند: Fluid دقیقاً چیست؟ چرا Liquid و Gas را معمولاً در یک چارچوب بررسی می‌کنیم؟ فشار چه فرقی با نیروی برشی دارد؟ و چه چیزی باعث می‌شود یک ماده فقط کمی تغییر شکل بدهد، اما مادهٔ دیگر دائماً تغییر شکل بدهد و به Flow بیفتد؟
+Those questions matter any time we model water in a pipe, air around a vehicle, exhaust leaving a jet engine, or waves on a lake. They also matter in CFD: a simulation may produce polished velocity contours, but we still need physical intuition to decide whether the assumptions make sense, what forces belong in the model, and whether the result passes a basic sanity check. This lecture lays that groundwork by connecting fluid behavior to stresses, free-body diagrams, and Newton’s laws.
 
-این تعریف‌ها مستقیماً به کار مهندسی می‌آیند. وقتی جریان آب داخل لوله، هوای اطراف خودرو، خروجی موتور جت یا موج روی سطح دریاچه را تحلیل می‌کنیم، باید بدانیم کدام نیروها به سیال وارد می‌شوند و آیا سیال در حالت تعادل است یا شتاب دارد. کل جلسه یک نقشهٔ راه است: اول خودِ Fluid را می‌شناسیم، بعد نیروها را روی آن می‌نویسیم و در پایان تصمیم می‌گیریم از **ΣF = 0** استفاده کنیم یا **ΣF = ma**.
+## 2. Walking Through the Lecture with Dr. Cimbala
 
-## ۲. پای صحبت‌های دکتر کیمبلا؛ قدم‌به‌قدم با درس
+### 1. First question: what is a fluid?
 
-### ۱) شروع ماجرا: Fluid یعنی چه؟
+Look, Cimbala begins with the three familiar states of matter: solid, liquid, and gas. For fluid mechanics, liquids and gases are both fluids. That gives us a useful starting point, but it doesn’t mean we can always swap one for the other without thinking.
 
-ببین، دکتر کیمبلا از یک تعریف ساده شروع می‌کند: از سه حالت رایج ماده، **Solid**، **Liquid** و **Gas**، دو تای آخر را Fluid می‌نامیم. اما این به معنی یکسان بودن کامل رفتار Liquid و Gas نیست.
+In many situations, liquids and gases can be analyzed with the same fluid framework if compressibility effects are negligible and there is no important free surface. A free surface is a boundary such as the water surface exposed to air. If that boundary does not control the phenomenon and density changes are small, we can often focus on their shared fluid behavior instead of treating “liquid” and “gas” as entirely different subjects.
 
-در بسیاری از مسائل می‌توانیم این دو را مشابه تحلیل کنیم، به شرطی که اثر **Compressibility** مهم نباشد و **Free Surface** نداشته باشیم. یعنی اگر تغییر چگالی به‌خاطر فشرده شدن ناچیز باشد و مرزی مثل سطح آب و هوا نقش تعیین‌کننده‌ای نداشته باشد، تمرکز ما روی رفتار عمومی Fluid خواهد بود.
+### 2. The test fluid can differ from the real fluid
 
-### ۲) چرا گاهی آب را جای هوا می‌گذاریم؟
+Cimbala gives two hands-on examples of using one fluid to study a system that involves another.
 
-اینجا دکتر یک مثال مهندسی جذاب می‌زند. یک زیردریایی انسان‌ران را در **Wind Tunnel** آزمایش کرده‌اند، در حالی که سامانهٔ واقعی با آب سروکار دارد. در مثالی دیگر، برای مطالعهٔ **Jet Engine Exhaust** از **Water Tunnel** استفاده شده، در حالی که سیال واقعی هواست.
+First, Penn State students built a human-powered submarine. The real vehicle operates in water, but the team tested it in a wind tunnel, so air served as the test fluid. Second, Cimbala studied jet-engine exhaust. The real exhaust is a gas, but he tested it in a water tunnel, using water as the test fluid.
 
-این جایگزینی از روی بی‌دقتی نیست؛ از روی convenience است. در آب، بعضی پدیده‌ها راحت‌تر دیده می‌شوند و در هوا، بعضی کمیت‌ها آسان‌تر اندازه‌گیری می‌شوند. مهندس دنبال این است که ویژگی‌های مهم پدیده را بازسازی کند، نه اینکه همیشه مادهٔ واقعی را عیناً تکرار کند.
+Why can that be useful? The choice can come down to experimental convenience. In water, it may be easier to see the flow; in air, it may be easier to make certain measurements. The test setup is useful when it reproduces the behavior relevant to the question being studied.
 
-اما دو جا باید مراقب باشیم: **Free Surface Effects**، مثل موج‌هایی که قایق روی سطح دریاچه می‌سازد، و **High-Speed Gas Flow**، مثل جریان اطراف راکت که در آن **Compressibility Effects** مهم می‌شوند. در این حالت‌ها، نمی‌توانیم صرفاً آب و هوا را به جای هم بگذاریم.
+But we need to recognize when the analogy breaks. A boat-generated wave depends on the free surface, so removing that surface changes the phenomenon. And in high-speed gas flows, such as around rockets, compressibility effects can become significant. In those cases, treating air and water as interchangeable would miss essential physics.
 
-### ۳) تعریف رسمی Fluid: تغییر شکل پیوسته
+### 3. The defining test: continuous deformation under shear
 
-حالا تعریف دقیق‌تر وارد می‌شود:
+Now Cimbala gives the formal definition:
 
-> **A fluid is a substance that deforms continuously under the application of a shear stress.**
+> A fluid is a substance that deforms continuously under the application of a shear stress.
 
-یعنی اگر **Shear Stress** را به یک Fluid وارد کنی، تغییر شکل آن متوقف نمی‌شود؛ ماده به حرکت و تغییر شکل ادامه می‌دهد.
+To unpack that, start with **stress**: force per unit area acting on a surface. The direction of the force relative to the surface separates the two stresses we’ll keep comparing:
 
-برای فهم این جمله، اول خودِ **Stress** را بشناسیم: **Stress** یعنی نیرو بر واحد سطح. جهت این نیرو مهم است. نیروی عمود بر سطح، **Normal Stress** است؛ نیروی مماسی با سطح، **Shear Stress** است.
+- **Normal Stress** acts perpendicular to a surface.
+- **Shear Stress** acts tangentially, along a surface.
 
-### ۴) Normal Stress: فشار از کدام جهت وارد می‌شود؟
+The key idea is not just whether a material changes shape once. It is whether it can settle into a deformed shape while the stress remains applied, or whether its deformation keeps going.
 
-فرض کن از بالای یک جسم Solid فشار می‌دهی. جسم کمی تغییر شکل می‌دهد، مثلاً اطرافش برآمده می‌شود، اما بعد در شکل جدید ساکن می‌ماند. پس Solid می‌تواند **Normal Stress** را تحمل کند.
+### 4. Push normally: compare a solid with a liquid
 
-همین آزمایش را برای Liquid داخل یک ظرف صلب تصور کن. یک پیستون روی سطح Liquid بگذار و آن را به پایین فشار بده. مایع نمی‌تواند از دیواره بیرون بزند، ولی کمی فشرده می‌شود. در این درس Liquid را تقریباً **Incompressible** فرض می‌کنیم؛ یعنی فشرده شدنش آن‌قدر کم است که معمولاً از آن صرف‌نظر می‌کنیم.
+Picture a solid object and push down on it. It deforms: it may bulge outward and compress a little. Then it comes to rest in its new shape. The solid has responded to the **Normal Stress**, but it can resist that stress by reaching a static, deformed state.
 
-در یک Fluid ساکن، نمونهٔ اصلی **Normal Stress** همان **Pressure** است. Pressure همیشه به سطح عمود و رو به داخل وارد می‌شود.
+Now put a liquid in a rigid container and press down on its surface with a piston. The container prevents the liquid from bulging outward. The liquid can compress slightly, but liquids are approximately incompressible for the purposes of this course, so we usually neglect that small compression.
 
-### ۵) Fluid Particle: یک تکهٔ کوچک با مرزهای فرضی
+The important qualification is “at rest”: a liquid at rest can resist a normal stress. In fact, pressure is the only normal stress in a fluid at rest, and it acts perpendicular and inward on a surface.
 
-برای تحلیل سیال لازم نیست همیشه یک حجم واقعی از آن را داخل یک ظرف جدا کنیم. می‌توانیم دور یک تکهٔ کوچک از Fluid یک مرز فرضی بکشیم و آن را **Fluid Particle** بنامیم.
+### 5. Pressure acts inward and normal—even on an imaginary boundary
 
-این particle یک «ذره» به معنای مولکول منفرد نیست؛ یک chunk کوچک از Fluid است که برای تحلیل، مرزهای فرضی دارد. Pressure روی این مرز فرضی هم مثل یک سطح واقعی، عمود و رو به داخل عمل می‌کند. این تصویر ذهنی بعداً برای رسم **Free Body Diagram** بسیار مهم می‌شود.
+Imagine pressure acting on an actual solid surface, like the surface of a potato. At each point, the pressure force acts inward and perpendicular to the surface.
 
-### ۶) Shear Stress: جایی که Fluid تفاوتش را نشان می‌دهد
+Now make the boundary imaginary. Picture a small chunk of fluid with the same potato-like shape, surrounded by air. We can draw an imaginary surface around that chunk and call it a **Fluid Particle**. It is not a single molecule; it is a small piece of fluid that we isolate for analysis. Pressure still acts inward and normal to each part of that imagined boundary.
 
-حالا به‌جای فشار عمودی، به سطح یک Solid نیروی مماسی بده. اگر پایین جسم به زمین چسبیده باشد، جسم کج می‌شود و تغییر شکل می‌دهد، اما می‌تواند در همان حالت تازه بایستد. بنابراین Solid می‌تواند **Shear Stress** را تحمل کند.
+That little mental construction becomes practical when we draw a free-body diagram: we can account for the forces acting on a selected portion of a fluid even when no physical wall surrounds it.
 
-حالا همین کار را روی سطح آزاد یک Liquid انجام بده. ظرف شکلش را حفظ می‌کند، اما Liquid شروع به حرکت می‌کند و داخل ظرف یک الگوی چرخشی یا **Recirculating Flow** شکل می‌گیرد. Liquid نمی‌تواند در حالت سکون، **Shear Stress** را تحمل کند و در همان وضعیت باقی بماند.
+### 6. Drag sideways: the difference between solid and fluid
 
-این دقیقاً قلب تعریف Fluid است: Fluid تحت Shear Stress دائماً deform می‌شود و این تغییر شکل پیوسته خودش را به صورت Flow نشان می‌دهد. البته وقتی Fluid در حال حرکت است، وجود هم‌زمان **Shear Stress** و **Normal Stress** ممکن است.
+Next, anchor the bottom of a solid and apply a tangential force along its top surface. The solid distorts—imagine it leaning into a slanted shape—but if the applied shear stress stays constant, the solid can remain in that new configuration. That is what it means for a solid to resist a **Shear Stress**.
 
-### ۷) Free Body Diagram: نیروها را روی یک المان کوچک ببینیم
+Try the same thought experiment with liquid in a container. Apply a shear stress at the liquid’s free surface. The rigid container does not distort, but the liquid begins to move. Its motion can form a recirculating pattern inside the container.
 
-دکتر کیمبلا برای منظم کردن بحث، یک المان کوچک از Solid یا Fluid را جدا می‌کند و روی آن **Free Body Diagram** می‌کشد.
+So a fluid at rest cannot resist a shear stress and remain at rest. The applied shear produces ongoing deformation, which appears as flow. A fluid already in motion can have both normal and shear stresses; the “cannot resist shear” statement is specifically about a fluid at rest.
 
-روی این المان چند نوع اثر می‌بینیم:
+### 7. Use a free-body diagram to account for the stresses
 
-- **Normal Stress** روی وجه‌ها
-- **Shear Stress** روی وجه‌ها
-- وزن (W) به‌عنوان **Body Force**
-- تنش‌ها به‌عنوان **Surface Forces**
+Cimbala now zooms in on a small element of the solid and a small element of the liquid. This is the free-body-diagram step: isolate the element, then draw every force acting on it.
 
-برای Solid ساکن، قانون اول نیوتن برقرار است:
+For the distorted solid element, the diagram includes shear stresses on its faces. The shear on the bottom balances the one on top, and stresses on the sides balance the turning effect so the element does not spin without bound. The diagram also includes normal stresses, including on the top and bottom and potentially on the sides, plus the element’s weight $W$ acting downward.
 
-[
-Sigma F = 0
-]
+Weight is a **body force** because it acts throughout the element’s mass. The stresses are **surface forces** because they act across the element’s faces. Since this solid element is at rest, Newton’s first law gives the force balance:
 
-یعنی نیروها همدیگر را خنثی می‌کنند و جسم شتاب ندارد.
+$$
+\sum \vec{F} = \vec{0}
+$$
 
-برای Liquid ساکن نیز **Shear Stress** نداریم، اما **Normal Stress** یا همان Pressure می‌تواند وجود داشته باشد. چون وزن رو به پایین است، Pressure در پایین المان باید از Pressure در بالا بیشتر باشد تا المان همچنان ساکن بماند. این همان ایده‌ای است که بعداً در **Hydrostatics** کامل‌تر می‌شود.
+That is statics: the forces balance, so the element has no acceleration.
 
-### ۸) وقتی Shear Stress را به Fluid ساکن اضافه کنیم
+### 8. A fluid element at rest: normal stresses and weight
 
-حالا فقط یک تغییر ایجاد کن: به سطح Fluid ساکن، **Shear Stress** اعمال کن. المان دیگر سر جای خود نمی‌ماند. حرکت می‌کند، ممکن است در یک مسیر خمیده پیش برود و در نتیجه شتاب داشته باشد.
+Now isolate a small liquid element at rest. Since a fluid at rest cannot resist shear stress, its free-body diagram contains normal stresses but no shear stresses. Gravity also acts on the element as weight.
 
-اینجا قانون اول جای خود را به قانون دوم نیوتن می‌دهد:
+For the element to stay still, the pressure at the bottom must be greater than the pressure at the top. The upward pressure force from below helps balance the downward weight. Once again, the element is in statics:
 
-[
-Sigma F = ma
-]
+$$
+\sum \vec{F} = \vec{0}
+$$
 
-پس **Fluid Dynamics** فقط دربارهٔ «حرکت داشتن» نیست؛ وقتی شتاب وجود دارد، باید اثر نیروها را با (ma) مرتبط کنیم.
+This pressure difference is a preview of hydrostatics, the study of fluids at rest.
 
-### ۹) Fluid فقط جابه‌جا نمی‌شود؛ شکلش هم عوض می‌شود
+### 9. Add shear to the liquid: now motion and acceleration enter
 
-یک نکتهٔ ظریف‌تر هم وجود دارد. Fluid Particle هنگام حرکت، فقط از یک نقطه به نقطهٔ دیگر نمی‌رود؛ شکلش نیز تغییر می‌کند. مستطیل کوچک اولیه ممکن است کج و کشیده شود و با ادامهٔ حرکت، به شکل دیگری دربیاید.
+Now apply shear at the liquid’s surface. The fluid particle no longer stays still. Its free-body diagram must include normal stresses, shear stresses, and weight.
 
-اگر Fluid **Incompressible** باشد، شکل می‌تواند تغییر کند، اما حجم و در نتیجه مساحت مؤثر المان حفظ می‌شود. اگر با یک Gas **Compressible** طرف باشیم، دو اتفاق ممکن است هم‌زمان رخ دهد: شکل عوض شود و خود ماده هم فشرده‌تر یا منبسط‌تر شود.
+If the particle moves along a curved path, its velocity changes direction, which means it accelerates. We now use Newton’s second law:
 
-### ۱۰) جمع‌بندی دو شاخهٔ اصلی Fluid Mechanics
+$$
+\sum \vec{F} = m\vec{a}
+$$
 
-در پایان، دو واژهٔ اصلی را کنار هم می‌گذاریم. **Mechanics** یعنی به‌کارگیری قانون‌های نیرو و حرکت. بنابراین:
+The change from zero on the right-hand side to $m\vec{a}$ is the key transition from a static force balance to a dynamic one. We need to consider not only which forces act, but also what acceleration those forces produce.
 
-**Fluid Mechanics** یعنی به‌کارگیری قانون‌های نیرو و حرکت برای ماده‌ای که تحت **Shear Stress** به‌طور پیوسته تغییر شکل می‌دهد.
+### 10. A moving fluid particle changes shape
 
-این حوزه دو شاخه دارد:
+There is another wrinkle: as the fluid particle moves, it also distorts. The small rectangular element in Cimbala’s sketch does not stay rectangular; it changes shape and continues to deform as the motion proceeds.
 
-- **Fluid Statics** یا **Hydrostatics**: بررسی Fluid در حالت سکون، با شرط تعادل
-  [
-  Sigma F = 0
-  ]
+For an incompressible fluid, deformation changes the element’s shape without changing its volume. For a compressible gas, the element can change shape and also shrink as it compresses or grow as it expands. In both cases, the material deforms; compressibility determines whether its volume changes too.
 
-- **Fluid Dynamics**: بررسی Fluid در حال حرکت و شتاب‌دار، با استفاده از
-  [
-  Sigma F = ma
-  ]
+This matters for how we model fluid motion. A fluid element is not a rigid block carried along unchanged. It can translate, accelerate, and deform at the same time.
 
-پس هر مسئلهٔ جدید را با این چند سؤال شروع کن: Fluid ساکن است یا متحرک؟ **Normal Stress** داریم یا **Shear Stress**؟ آیا **Compressibility** مهم است؟ آیا **Free Surface** رفتار مسئله را تعیین می‌کند؟ و اگر یک **Fluid Particle** را جدا کنیم، چه **Surface Force** و **Body Force**هایی روی آن اثر می‌گذارند؟
+### 11. Put “fluid” and “mechanics” together
 
-با همین پرسش‌ها، قبل از حفظ کردن فرمول‌ها، منطق فیزیکی Fluid Mechanics را در دست می‌گیری.
+Cimbala finishes by defining mechanics as the application of the laws of force and motion. Mechanics has two branches that matter here:
 
-</div>
+- **Fluid Statics**, also called **Hydrostatics**, studies fluids at rest. We use a force balance such as $\sum \vec{F} = \vec{0}$.
+- **Fluid Dynamics** studies fluids in motion. When a fluid particle accelerates, we use Newton’s second law, $\sum \vec{F} = m\vec{a}$.
 
+Putting the definitions together, **Fluid Mechanics** applies the laws of force and motion to a fluid: a substance that deforms continuously under an applied shear stress. Its two main branches are fluid statics and fluid dynamics.
+
+### The takeaway to carry into the next lecture
+
+When you meet a new fluid-mechanics problem, start with the physical picture. Is the fluid at rest or moving? Is the important loading normal to a surface or tangential to it? Can you neglect compressibility? Is there a free surface that controls the behavior? Then isolate a fluid particle, draw its body and surface forces, and choose the force balance that matches its motion.
+
+That sequence—physical behavior, forces, then Newton’s law—is just as useful when you reason through an experiment as it is when you inspect a CFD result.
