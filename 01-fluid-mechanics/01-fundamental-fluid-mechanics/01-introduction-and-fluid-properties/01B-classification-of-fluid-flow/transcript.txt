@@ -1,0 +1,454 @@
+welcome to lesson 1b classification of
+fluid flows in this lesson we'll discuss
+various ways to classify fluid flows
+we'll define something called the no
+slip condition and we'll define mach
+number and do an example problem first
+let's talk about viscous versus inviscid
+regions of flow for a fluid the term
+viscous refers to when there is friction
+between fluid particles we'll talk about
+viscosity later the word inviscid is
+really kind of a misnomer inviscid does
+not mean that the fluid has no viscosity
+instead inviscid means that viscous
+effects are negligible compared to
+inertial or pressure effects but viscous
+effects are always important near a wall
+it turns out that at a wall the velocity
+of the fluid must equal the velocity of
+the wall consider for example a car
+that's moving at v car equal 60 miles
+per hour at any point along this wall
+the body of the car v of the air right
+at any of these points along the wall
+must be identical that namely 60 miles
+per hour this is true at any point along
+the surface of this vehicle in other
+words the air moves with the car if you
+are running this in a wind tunnel
+velocity of the car is zero it's
+stationary in the wind tunnel but the
+wind hitting it is at 60 miles per hour
+in that case at any point along the
+surface v has to equal zero this is a
+simple change of the frame of reference
+we see that in either case whether the
+car is moving relative to the air or the
+wind is moving relative to the car the
+fluid has to have the same speed same
+velocity that means speed and direction
+of the car itself this equation that v
+fluid has to equal v wall those are
+vectors it's called the no slip
+condition which means there can't be a
+slip of the air relative to the wall so
+let's return to our discussion of
+viscous versus inviscid regions i'm
+calling it regions now and you'll see
+why very near the wall viscous effects
+are always important but away from the
+wall viscous effects can be negligible
+so we need to talk about regions where
+the flow is either viscous or inviscid
+so fluid nearer wall is influenced
+strongly by friction this would be a
+viscous region whereas fluid away from a
+wall is not strongly influenced by
+friction we'd call that an inviscid
+region viscous effects are due to a
+fluid property that's called viscosity
+it's given the greek symbol mu we'll
+discuss viscosity in more detail later i
+want to define now something called a
+boundary layer which will be very
+important in fluid mechanics if you have
+some kind of a flow say the hood of our
+car in a wind tunnel and you have some
+speed hitting it as we've said before
+anywhere along this wall the speed has
+to equal the speed of the wall wall
+speed here is zero what happens is you
+get a thin layer of viscous fluid which
+is called a boundary layer velocity very
+rapidly goes from zero to whatever speed
+is out here and by the no slip condition
+the velocity has to be zero at the wall
+in terms of regions this region inside
+the boundary layer is a viscous region
+of the flow whereas out here away from
+the wall we can approximate this as an
+inviscid region of the flow again keep
+in mind that inviscid does not mean the
+fluid has no viscosity all fluids have
+viscosity it's just that those viscous
+effects are not significant in that
+region in fact we can define a boundary
+layer which i will from now on
+abbreviate as just bl boundary layer is
+defined as a thin layer near a wall
+where viscous effects are significant
+you can actually have boundary layers
+without walls but we're not going to go
+into that much detail right now here's a
+sketch of a car with a boundary layer
+you can see that this is exaggerated
+actually the boundary layer would in
+real life be more thin than this
+everything in the boundary layer would
+be the viscous region and everything
+outside the boundary layer would be the
+inviscid region later on in the course
+we'll be able to calculate things like
+this velocity profile through the
+boundary layer the second classification
+is internal versus external flow this is
+a lot easier to explain and understand
+internal flow simply means it's confined
+by walls or between walls some examples
+would be pipe flow or flow through a
+valve that's internal flow external flow
+is the opposite flow not confined by
+walls that doesn't mean necessarily that
+there's no walls in the flow for example
+we'd consider flow over a car and
+external flow even though there's a
+ground that's a wall or even in a wind
+tunnel here's a tennis ball in a wind
+tunnel there's going to be walls that
+define the test section of the wind
+tunnel but as long as those walls are
+far away they don't affect flow over
+this ball so we would still call this an
+external flow so you can have some walls
+but they're far away as in that case or
+simply part of the flow field as in the
+car case unless the car is flying off a
+cliff it always has a wall underneath it
+next we'll talk about compressible
+versus incompressible flow if the
+density which we use the symbol rho
+which is mass over volume of the fluid
+is approximately constant we call that
+incompressible we call it compressible
+if changes in density are significant i
+want to comment here about my notation
+when i have a capital v like that that
+means speed if you put an arrow over it
+it means velocity which is speed along
+with the direction it's a vector i draw
+v with a line through it to mean volume
+so you'll see this notation when i write
+things out to mean volume in the
+textbook there's kind of a script
+looking different font for v as volume
+compared to speed so you just have to
+get used to that in the book let's
+define a very important parameter in
+fluid flow called the mach number m a
+some textbooks just use m we use m a in
+the django symbol of fluid book this is
+a non-dimensional parameter equal to the
+speed over the speed of sound so v is
+the speed of the fluid itself and c is
+the speed of sound in that fluid mach
+number is important to decide whether
+the flow is compressible or whether we
+can approximate it as incompressible a
+good rule of thumb is that row changes
+by about five percent when the mach
+number is about 0.3 so we can say that
+if the mach number is less than about
+0.3 we approximate the flow as
+incompressible so that's a good rule of
+thumb to remember going back to the
+previous lesson this is why you can
+approximate flows in air by modeling
+them in a test with the water tunnel
+with water but only when the air is not
+flowing very fast up to about mach
+number of 0.3 we can do stuff like that
+the mach numbers greater than 0.3 we
+start to get more than about 5 percent
+error which starts to be fairly
+significant note that air is a
+compressible fluid it can be
+approximated as an ideal gas where
+density is changing with pressure and
+temperature but we can approximate it as
+incompressible at low mach number keep
+in mind that that is an approximation
+liquids however are almost always
+approximated as incompressible here are
+some examples a river meandering through
+the land is incompressible that's a
+liquid a small plane like the one shown
+here that might fly at maybe 100 miles
+per hour it's still low speed the mach
+number would be much less than 0.3 some
+examples of compressible flow here's a
+cool schlieren image of a balloon
+exploding and you could see things like
+a shock wave forming here that expands
+out this is definitely compressible this
+is an unsteady flow and this shock wave
+is moving radially outward from this
+explosion if the velocity is greater
+than the speed of sound the mach number
+which is v over c is greater than one we
+call that supersonic supersonic flow is
+highly compressible here's an example of
+the space shuttle in a wind tunnel at a
+supersonic mach number and this is
+called an oblique shock the wind tunnel
+here is operating at supersonic flow
+when we talk about compressibility in
+air air is approximated as an ideal gas
+we're going to talk about the speed of
+sound without going through the
+derivation c is the speed of sound some
+books use a instead for an ideal gas c
+is the square root of krt where k is the
+ratio of specific heats cp over cv and r
+is called the specific gas constant
+don't confuse r with r u r u is the
+universal gas constant and you divide by
+molecular weight to get the specific gas
+constant let's do a quick example let's
+take air at 20 degrees c we'll typically
+be talking about air let's calculate the
+speed of sound so i would use my
+equation from above c equals square root
+of k rt using my definition of r this is
+k r u over m molecular weight of the air
+times t and now let's plug in our
+numbers we have square root k for air is
+1.40 this is on your equation sheet by
+the way also on the equation sheet is
+universal gas constant 8.314
+kilojoule per kilomole k kelvin
+molecular weight of air from the
+equation seat is 28.97
+kilogram per kilomole now be careful
+this t must be an absolute temperature
+not celsius has to be in k in this case
+in the metric system so we have to
+convert 20.0 plus
+273.15 that gives us k now we need to do
+some unit conversions a kilonewton meter
+is the definition of a kilojoule that's
+energy work times distance that gets rid
+of kilojoules there k's are gone
+kilomoles are gone now we have
+kilonewtons and kilograms and meters so
+we need another unity conversion factor
+1000 kilogram meter per second squared
+kilonewton that just comes from newton's
+second law newton is a kilogram meter
+per second squared so a kilonewton is a
+thousand kilogram meters per second
+squared we can cross out kilonewton now
+we can cross out kilogram so all we have
+left is two meters on the top and the
+second squared on the bottom when you
+take the square root that gives us
+meters per second which is what we want
+plug in your calculator c is
+343.19 meters per second i always give
+my answers unless specified otherwise to
+three significant digits but i'll keep
+these five here for use in the next
+example problem to avoid round off error
+notice that these two are what we call
+unity or unit conversion factors or
+ratios these are by definition one
+that's equal to one and that's equal to
+one they're just unit conversions so you
+can multiply one by anything else in
+your equation and you don't change it
+that's why we call it unity conversion
+ratios i would strongly advise you to do
+your units like i just did here not just
+in this course but in all of your
+courses and in all of your life so that
+you don't mess up your units so this is
+the speed of sound in air at 20 degrees
+c now we can do another example with
+mach number in this example we have a
+military jet flying at a certain speed
+in miles per hour through the atmosphere
+this is air where the temperature is 20
+degrees c we want to calculate the mach
+number and determine whether this flow
+is subsonic or supersonic and whether
+it's compressible or nearly
+incompressible where we can ignore
+compressibility v is 464 miles per hour
+c is
+343.19 meters per second this comes from
+the previous example since it's at the
+same temperature so that's the previous
+page mach number is then defined as v
+over c again always put in your units
+with your numbers 464 miles per hour
+343.19 meters per second we have to
+convert miles per hour to meters per
+second most students just look this up
+on the internet but the proper way to do
+this is to convert units using unity
+conversion factors one hour is 3600
+seconds 60 times 60 and then 1609.3
+meters is equivalent to a mile again
+both of these are unity conversion
+ratios when i plug this into my
+calculator i get 0.6
+notice that all the units cancel miles
+cancel meters cancel seconds cancel and
+hours cancel so this is no units which
+sometimes is indicated this way but if
+you just leave the number by itself that
+implies there's no units so my final
+answer is mach number is 0.604 the three
+digits notice that i kept this to about
+five digits here just to avoid round off
+error but my final answer is three
+significant digits since i'm limited by
+three digits in the given information
+well to answer the question we've
+calculated the mach number is this
+subsonic or supersonic and is it
+compressible or nearly incompressible
+well obviously since mach number is less
+than one it's subsonic since mach number
+is greater than 0.3 this is compressible
+tying in with the previous lesson if you
+run this experiment in a liquid like
+water with a model you could have
+significant error in any kind of
+measurements you make because this water
+is incompressible or approximated as
+incompressible whereas the air itself
+here is compressible and this flow the
+mach number is high enough that
+compressibility effects are important
+okay moving on let's talk about laminar
+versus turbulent flow laminar the very
+word is from lamina which means smooth
+and orderly like a laminate typically
+steady but it can be unsteady as long as
+it's smooth and orderly whereas
+turbulent flow is chaotic it's always
+unsteady and there's random eddies or
+vortices in the flow so a laminar flow
+might look like this you have these nice
+this nice flow whereas a turbulent flow
+would have all these eddies moving
+around and it's unsteady and chaotic you
+can see this in water flowing from a
+tube here's a picture of laminar flow
+from a tube compared to turbulent flow
+from that same tube typically this is at
+low speed whereas this is typically at
+high speed we're talking about water
+here so this is still approximated as
+incompressible but you can have laminar
+versus turbulent flow i mentioned that
+turbulent flow is unsteady but i want to
+comment that a turbulent flow can be
+steady in the mean for example this pipe
+flow is steady in the mean even though
+there's lots of eddies and vortices all
+over this thing that are unsteady okay
+quickly through the rest of these
+natural versus forced that's kind of
+obvious natural flow means there's no
+fan or anything forcing the flow it just
+happens by itself for example flow just
+due to convection thermal convection
+versus forced there's a fan or in this
+case a swimmer there's muscles that are
+moving someone propelling this person
+forcing the flow if this person just
+sits still he or she will stop steady
+versus unsteady we've already kind of
+talked about this is a highly unsteady
+waterfall here with lots of turbulent
+eddies but if you have a long time
+exposure it looks steady it's actually
+steady in the mean whereas this unsteady
+picture is an instantaneous snapshot
+photograph some flows like flow from a
+just a floor fan can also be steady in
+the mean but if you take an
+instantaneous flow you would see some
+kind of lobes of the flow with turbulent
+eddies etc around each of these blades
+in a cyclic pattern it's not really
+steady but in a long-term kind of view
+it's steady in the mean finally let's
+talk about one two or three dimensional
+flows flow over a car is definitely
+three dimensional by that we mean that
+the velocity field is a function of
+three spatial dimensions x y and z it's
+a three-dimensional geometry and a
+three-dimensional flow flow over this
+antenna here however is safe between
+some section of it not near the wall
+when not near the end can be
+approximated as two-dimensional it's a
+function of only two spatial variables
+for example r and theta if you look at a
+cross-sectional view you see a cylinder
+with flow coming at it and you'll get
+some vertices shed from it like this
+you'll have this kind of two-dimensional
+wake that's only a function of in this
+case x and y let's look at pipe flow as
+another example this is also a 2d flow
+near the entrance here the velocity is a
+function of r and z z is the direction
+down the pipe and r is the radius you
+see that this flow is changing until we
+reach a certain point here where we call
+it fully developed and the velocity
+profile does not change anymore after
+that so in this region v is a function
+of radius only so this part of the flow
+is actually one dimensional whereas this
+part is two dimensional in terms of
+pressure and we'll talk about pipe flow
+a lot later on in the course it turns
+out that p is a function of z only if we
+neglect gravity p is a function of z
+only in other words it varies it
+decreases with this direction down the
+pipe so that's also 1d so pipe flow
+fully developed pipe flow has an
+interesting characteristic velocity
+field is 1d function of r only pressure
+is 1d a function of z only another
+example would be flow over a bullet or
+any other kind of axisymmetric body so
+in this case v is a function of radius
+and downstream direction z v is not a
+function of this variable theta which is
+just the angle around since it's
+axisymmetric so this would be 2d flow if
+this were at an angle of attack however
+the flow would be a function of theta so
+that would have to be fully 3d so kind
+of in summary 3d flow is velocity being
+a function of three variables i say
+velocity but pressure temperature other
+things can be functions of three
+variables to be 3d 2d
+v is a function of two variables and one
+d is a function of one variable and i've
+shown you examples of all these cases
+here most of the stuff we do in this
+course will be two-dimensional
+thank you for watching this video please
+subscribe to my youtube channel for more
+videos
+you
