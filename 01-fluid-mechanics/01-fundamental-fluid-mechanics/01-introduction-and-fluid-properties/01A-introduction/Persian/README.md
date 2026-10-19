@@ -1,4 +1,4 @@
-<div dir="rtl">
+<div dir="rtl" align="right">
 
 # درس ۰۱ا: آشنایی با مکانیک سیالات
 
